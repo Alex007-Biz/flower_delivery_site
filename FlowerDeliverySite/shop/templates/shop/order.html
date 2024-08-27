@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Flowers</title>
+</head>
+<body>
+    <h1>Order Flowers</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% for flower in flowers %}
+            <input type="checkbox" name="flowers" value="{{ flower.id }}">{{ flower.name }} - ${{ flower.price }}<br>
+        {% endfor %}
+        <button type="submit">Submit Order</button>
+    </form>
+</body>
+</html>
