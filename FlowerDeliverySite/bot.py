@@ -1,39 +1,47 @@
 import os
 import logging
-from aiogram import Bot, Dispatcher, types
-from aiogram.filters import Command
-from aiogram import F
-from aiogram.contrib.fsm_storage.memory import MemoryStorage
+import asyncio
+from aiogram import Bot, Dispatcher, F
+from aiogram.filters import CommandStart, Command
+from aiogram.types import Message
+import requests
 import django
+from config import TOKEN
+from asgiref.sync import sync_to_async
+
 
 # Настройка Django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FlowerDeliverySite.settings')
+# print("Before Django setup")
 django.setup()
+# print("Django setup complete")
 
+# Импорт моделей после настройки Django
 from shop.models import Flower, Order
 
 # Включение логирования
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-API_TOKEN = '7183754748:AAG-1AUzjUj934nPRdib4gyJp7pjgauQWs8'
+bot = Bot(token=TOKEN)
+dp = Dispatcher()
 
-# Инициализация бота и диспетчера
-bot = Bot(token=API_TOKEN)
-dp = Dispatcher(bot, storage=storage)
+@sync_to_async
+def get_flowers():
+    return list(Flower.objects.all())
 
-@dp.message(Command("start"))
-async def start(message: types.Message):
-    await message.reply('Welcome to the Flower Delivery Service! Use /order to make an order.')
+@dp.message(CommandStart())
+async def start(message: Message):
+    await message.answer('Добро пожаловать на Flower Delivery Service! Кликните по /order для совершения заказа.')
 
-@dp.message(Command("order"))
-async def order(message: types.Message):
-    flowers = Flower.objects.all()
+@dp.message(Command('order'))
+async def order(message: Message):
+    flowers = await get_flowers()  # Получаем цветы асинхронно
     flower_list = '\n'.join([f"{flower.id}: {flower.name} - ${flower.price}" for flower in flowers])
-    await message.reply(f"Available flowers:\n{flower_list}\n\nPlease send the flower IDs separated by commas.")
+    await message.answer(f"Доступные букеты:\n{flower_list}\n\nПожалуйста вышлите ID интересующих букетов через запятую.")
 
 @dp.message(F.text & ~F.command())
-async def handle_message(message: types.Message):
+async def handle_message(message: Message):
     text = message.text.split(',')
     flower_ids = [int(id.strip()) for id in text if id.strip().isdigit()]
     user_id = message.from_user.id  # Get the Telegram user ID
@@ -46,15 +54,22 @@ async def handle_message(message: types.Message):
             flower = Flower.objects.get(id=flower_id)
             order.flowers.add(flower)
         except Flower.DoesNotExist:
-            await message.reply(f"Flower with ID {flower_id} does not exist.")
+            await message.answer(f"Flower with ID {flower_id} does not exist.")
 
-    await message.reply('Your order has been placed!')
+    await message.answer('Your order has been placed!')
 
-async def on_startup(dp: Dispatcher):
-    logging.info("Starting bot...")
+async def main():
+   await dp.start_polling(bot)
 
 if __name__ == '__main__':
-    from aiogram import executor
+   asyncio.run(main())
 
-    # Запуск бота
-    executor.start_polling(dp, on_startup=on_startup, skip_updates=True)
+
+# async def on_startup(dp: Dispatcher):
+#     logging.info("Starting bot...")
+#
+# if __name__ == '__main__':
+#     from aiogram import executor
+#
+#     # Запуск бота
+#     executor.start_polling(dp, on_startup=on_startup, skip_updates=True)
