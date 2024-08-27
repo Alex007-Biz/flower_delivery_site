@@ -5,11 +5,7 @@
 </head>
 <body>
     <h1>Flower Catalog</h1>
-    <ul>
-        {% for flower in flowers %}
-            <li>{{ flower.name }} - ${{ flower.price }}</li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'order' %}">Order Flowers</a>
+
 </body>
 </html>
+

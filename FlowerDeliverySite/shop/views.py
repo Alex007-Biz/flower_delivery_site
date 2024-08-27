@@ -6,13 +6,15 @@ from django.http import HttpResponse
 # Create your views here.
 def index(request):
     flowers = Flower.objects.all()
-    return HttpResponse("<h1>Это магазин цветов!</h1>")
     return render(request, 'shop/index.html', {'flowers': flowers})
+    # return render(request, 'shop/index.html')
+
 
 def new(request):
-    return HttpResponse("<h1>Это вторая страница проекта на Django</h1>")
+    return render(request, 'shop/new.html')
+    # return HttpResponse("<h1>Это вторая страница проекта на Django</h1>")
 
-def new_n(request):
+def page3(request):
     return HttpResponse("<h1>Это третья страница проекта на Django</h1>")
 
 @login_required
