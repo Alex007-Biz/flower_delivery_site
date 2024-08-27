@@ -10,7 +10,7 @@ def index(request):
     return render(request, 'shop/index.html', {'flowers': flowers})
 
 def new(request):
-    return HttpResponse("<h1>Это втоggя страница проекта на Django</h1>")
+    return HttpResponse("<h1>Это вторая страница проекта на Django</h1>")
 
 def new_n(request):
     return HttpResponse("<h1>Это третья страница проекта на Django</h1>")
