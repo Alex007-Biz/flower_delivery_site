@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a4a2041-d0e7-4788-8360-f506b1b738a9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/FlowerDeliverySite/shop/templates/shop/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/templates/shop/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/shop/templates/shop/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/templates/shop/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/shop/templates/shop/new.html" afterDir="false" />
-    </list>
+    <list default="true" id="9a4a2041-d0e7-4788-8360-f506b1b738a9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
