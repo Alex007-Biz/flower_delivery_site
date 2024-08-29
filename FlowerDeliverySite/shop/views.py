@@ -14,8 +14,11 @@ def new(request):
     return render(request, 'shop/new.html')
     # return HttpResponse("<h1>Это вторая страница проекта на Django</h1>")
 
-def page3(request):
-    return HttpResponse("<h1>Это третья страница проекта на Django</h1>")
+def about(request):
+    return render(request, 'shop/about.html')
+
+def contacts(request):
+    return render(request, 'shop/contacts.html')
 
 @login_required
 def order(request):

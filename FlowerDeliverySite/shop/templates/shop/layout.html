@@ -22,16 +22,16 @@
                 <nav>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Главная</a>
+                            <a class="nav-link active" href="{% url 'home' %}">Главная</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Второстепенная</a>
+                            <a class="nav-link" href="{% url 'page2' %}">Второстепенная</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">О нас</a>
+                            <a class="nav-link" href="{% url 'page3' %}">О нас</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Контакты</a>
+                            <a class="nav-link" href="{% url 'page4' %}">Контакты</a>
                         </li>
                     </ul>
                 </nav>
