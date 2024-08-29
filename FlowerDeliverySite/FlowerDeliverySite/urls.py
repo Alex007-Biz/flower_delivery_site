@@ -24,7 +24,9 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('', views.index, name='index'),
-    # path('order/', views.order, name='order'),
     path('', include('shop.urls'))
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
+# Добавляем обработку статических и медиа-файлов
+if settings.DEBUG:  # Обычно это нужно только в режиме разработки
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
