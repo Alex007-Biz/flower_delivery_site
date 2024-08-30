@@ -8,7 +8,9 @@ class Flower(models.Model):
     description = models.TextField(default='Описание не указано')
     price = models.DecimalField(max_digits=10, decimal_places=2)
     image = models.ImageField('Изображение', upload_to='flowers/', null=True, blank=True)
-
+    class Meta:
+        verbose_name = 'Цветы'
+        verbose_name_plural = 'Цветы'
     def __str__(self):
         return self.name
 
@@ -16,6 +18,8 @@ class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     flowers = models.ManyToManyField(Flower)
     created_at = models.DateTimeField(auto_now_add=True)
-
+    class Meta:
+        verbose_name = 'Заказ'
+        verbose_name_plural = 'Заказы'
     def __str__(self):
         return f"Order {self.id} by {self.user.username}"
