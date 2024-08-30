@@ -5,5 +5,21 @@
 {% endblock %}
 
 {% block content %}
-<h1>Каталог цветов</h1>
+    <div class="container">
+        <div class="row">
+            <h1 class="col-12 mb-4">Каталог цветов</h1>
+            {% for flower in flowers %}
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                <div class="card">
+                    <img src="{{ flower.image }}" class="card-img-top" alt="{{ flower.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ flower.name }}</h5>
+                        <p class="card-text">{{ flower.description }}</p>
+                        <p class="card-text"><strong>Цена: {{ flower.price }} руб.</strong></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
