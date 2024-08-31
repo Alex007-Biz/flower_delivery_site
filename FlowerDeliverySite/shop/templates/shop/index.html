@@ -9,13 +9,13 @@
         <div class="row">
             <h1 class="col-12 mb-4">Каталог цветов</h1>
             {% for flower in flowers %}
-            <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
-                <div class="card">
-                    <img src="{{ flower.image.url }}" class="card-img-top" alt="{{ flower.name }}">
-                    <div class="card-body">
+            <div class="col-lg-4 col-md-4 col-sm-12 mb-4">
+                <div class="card h-100">
+                    <img src="{{ flower.image.url }}" class="card-img-top flower-image" alt="{{ flower.name }}">
+                    <div class="card-body d-flex flex-column">
                         <h5 class="card-title">{{ flower.name }}</h5>
                         <p class="card-text">{{ flower.description }}</p>
-                        <p class="card-text"><strong>Цена: {{ flower.price }} руб.</strong></p>
+                        <p class="card-text mt-auto"><strong>Цена: {{ flower.price }} руб.</strong></p>
                     </div>
                 </div>
             </div>
