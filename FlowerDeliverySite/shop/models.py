@@ -7,7 +7,7 @@ class Flower(models.Model):
     name = models.CharField('Название букета', max_length=100)
     description = models.TextField(default='Описание не указано')
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    image = models.ImageField('Изображение', upload_to='flowers/', null=True, blank=True)
+    image = models.ImageField('Изображение', upload_to='media/flowers/', null=True, blank=True)
     class Meta:
         verbose_name = 'Цветы'
         verbose_name_plural = 'Цветы'

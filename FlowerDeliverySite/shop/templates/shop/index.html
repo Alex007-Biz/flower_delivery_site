@@ -11,7 +11,7 @@
             {% for flower in flowers %}
             <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
                 <div class="card">
-                    <img src="{{ flower.image }}" class="card-img-top" alt="{{ flower.name }}">
+                    <img src="{{ flower.image.url }}" class="card-img-top" alt="{{ flower.name }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ flower.name }}</h5>
                         <p class="card-text">{{ flower.description }}</p>
