@@ -16,7 +16,12 @@
                         <h5 class="card-title">{{ flower.name }}</h5>
                         <p class="card-text">{{ flower.description }}</p>
                         <p class="card-text mt-auto"><strong>Цена: {{ flower.price }} руб.</strong></p>
-                        <a href="{% url 'order' %}" class="btn btn-orange">Купить</a>
+                        <form method="post" action="{% url 'order' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="flower_id" value="{{ flower.id }}">
+                            <button class="btn btn-orange" type="submit">Купить</button>
+                        </form>
+<!--                        <a href="{% url 'order' %}" class="btn btn-orange">Купить</a>-->
                     </div>
                 </div>
             </div>

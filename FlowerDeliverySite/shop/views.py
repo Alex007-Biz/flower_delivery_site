@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Flower, Order
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
@@ -23,9 +23,16 @@ def contacts(request):
 # @login_required
 def order(request):
     if request.method == 'POST':
-        flower_ids = request.POST.getlist('flowers')
-        order = Order.objects.create(user=request.user)
-        order.flowers.add(*flower_ids)
-        return redirect('index')
-    flowers = Flower.objects.all()
-    return render(request, 'shop/order.html', {'flowers': flowers})
+        flower_id = request.POST.get('flower_id')
+        flower = get_object_or_404(Flower, id=flower_id)
+        return render(request, 'shop/order.html', {'flowers': [flower]})
+        # Передаем только выбранный цветок
+        # Если GET-запрос, вы можете вернуть пустую страницу или список всех цветов (если это необходимо)
+        flowers = Flower.objects.all()
+        return render(request, 'shop/order.html', {'flowers': flowers})
+
+    #     order = Order.objects.create(user=request.user)
+    #     order.flowers.add(*flower_ids)
+    #     return redirect('index')
+    # flowers = Flower.objects.all()
+    # return render(request, 'shop/order.html', {'flowers': flowers})

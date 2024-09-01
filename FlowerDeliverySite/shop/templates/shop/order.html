@@ -9,8 +9,13 @@
     <form method="post">
         {% csrf_token %}
         {% for flower in flowers %}
-            <input type="checkbox" name="flowers" value="{{ flower.id }}">{{ flower.name }} - {{ flower.price }} руб.<br>
+            <div>
+                <input type="checkbox" name="flowers" value="{{ flower.id }}">
+                <img src="{{ flower.image.url }}" alt="{{ flower.name }}" style="width: 100px; height: auto;">  <!-- Отображение картинки -->
+                {{ flower.name }} - {{ flower.price }} руб.<br>
+            </div>
         {% endfor %}
-        <button type="submit">Оформить заказ</button>
+        <br>
+        <button class="btn btn-orange" type="submit">Оформить заказ</button>
     </form>
 {% endblock %}
