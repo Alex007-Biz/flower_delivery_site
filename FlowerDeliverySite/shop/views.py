@@ -20,7 +20,7 @@ def about(request):
 def contacts(request):
     return render(request, 'shop/contacts.html')
 
-@login_required
+# @login_required
 def order(request):
     if request.method == 'POST':
         flower_ids = request.POST.getlist('flowers')

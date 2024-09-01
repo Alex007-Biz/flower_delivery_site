@@ -2,3 +2,13 @@
     height: 400px; /* Установите желаемую высоту */
     object-fit: cover; /* Обеспечивает обрезку изображения для заполнения контейнера */
 }
+
+.btn-orange {
+    background-color: orange; /* Цвет фона */
+    color: white; /* Цвет текста */
+    border: none; /* Убираем границу, если нужно */
+}
+
+.btn-orange:hover {
+    background-color: darkorange; /* Цвет фона при наведении */
+}
