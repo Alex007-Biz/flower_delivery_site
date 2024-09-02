@@ -4,7 +4,7 @@ import asyncio
 from aiogram import Bot, Dispatcher, F
 from aiogram.filters import CommandStart, Command
 from aiogram.types import Message
-import requests
+# import requests
 import django
 from config import TOKEN
 from asgiref.sync import sync_to_async
@@ -12,12 +12,11 @@ from asgiref.sync import sync_to_async
 
 # Настройка Django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FlowerDeliverySite.settings')
-# print("Before Django setup")
 django.setup()
-# print("Django setup complete")
 
 # Импорт моделей после настройки Django
-from shop.models import Flower, Order
+from shop.models import Flower, Order, User  # Не забудьте импортировать User
+
 
 # Включение логирования
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
@@ -30,33 +29,47 @@ dp = Dispatcher()
 def get_flowers():
     return list(Flower.objects.all())
 
+@sync_to_async
+def get_user(user_id):
+    return User.objects.get(id=user_id)
+
+@sync_to_async
+def create_order(user):
+    return Order.objects.create(user=user)
+
 @dp.message(CommandStart())
 async def start(message: Message):
-    await message.answer('Добро пожаловать на Flower Delivery Service! Кликните по /order для совершения заказа.')
+    await message.answer("Добро пожаловать в Магазин цветов Bernardo's Flowers! Кликните по /order для совершения заказа.")
 
 @dp.message(Command('order'))
 async def order(message: Message):
     flowers = await get_flowers()  # Получаем цветы асинхронно
-    flower_list = '\n'.join([f"{flower.id}: {flower.name} - ${flower.price}" for flower in flowers])
+    flower_list = '\n'.join([f"{flower.id}: {flower.name} - {flower.price} руб." for flower in flowers])
     await message.answer(f"Доступные букеты:\n{flower_list}\n\nПожалуйста вышлите ID интересующих букетов через запятую.")
 
 @dp.message(F.text & ~F.command())
 async def handle_message(message: Message):
     text = message.text.split(',')
     flower_ids = [int(id.strip()) for id in text if id.strip().isdigit()]
-    user_id = message.from_user.id  # Get the Telegram user ID
+    user_id = message.from_user.id  # Получаем ID пользователя Telegram
 
-    # Create an order using the Telegram user ID
-    order = Order.objects.create(user_id=user_id)  # Make sure that user_id matches your User model
+    try:
+        # Получаем пользователя из базы данных
+        user = await get_user(user_id)  # Используем await здесь
+        order = await create_order(user)  # Используем await здесь
 
-    for flower_id in flower_ids:
-        try:
-            flower = Flower.objects.get(id=flower_id)
-            order.flowers.add(flower)
-        except Flower.DoesNotExist:
-            await message.answer(f"Flower with ID {flower_id} does not exist.")
+        for flower_id in flower_ids:
+            try:
+                flower = await Flower.objects.get(id=flower_id)  # Не забудьте обернуть этот вызов в sync_to_async
+                order.flowers.add(flower)
+            except Flower.DoesNotExist:
+                await message.answer(f"Букет №{flower_id} не существует.")
 
-    await message.answer('Your order has been placed!')
+        await message.answer('Ваш заказ уже собирается!')
+
+    except Exception as e:
+        logger.error(f"Ошибка при создании заказа: {e}")
+        await message.answer("Произошла ошибка при оформлении вашего заказа. Попробуйте позже.")
 
 async def main():
    await dp.start_polling(bot)
@@ -64,12 +77,3 @@ async def main():
 if __name__ == '__main__':
    asyncio.run(main())
 
-
-# async def on_startup(dp: Dispatcher):
-#     logging.info("Starting bot...")
-#
-# if __name__ == '__main__':
-#     from aiogram import executor
-#
-#     # Запуск бота
-#     executor.start_polling(dp, on_startup=on_startup, skip_updates=True)

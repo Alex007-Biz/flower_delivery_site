@@ -7,7 +7,7 @@
 {% block content %}
     <h1>Ваш заказ</h1>
 
-    <form method="post">
+    <form method="post" action="{% url 'confirm_order' %}">
         {% csrf_token %}
         {% if selected_flower %}
             <div>
@@ -15,14 +15,6 @@
                 <img src="{{ selected_flower.image.url }}" alt="{{ selected_flower.name }}" style="width: 100px; height: auto;">
                 {{ selected_flower.name }} - {{ selected_flower.price }} руб.<br>
             </div>
-        {% else %}
-            {% for flower in flowers %}
-                <div>
-                    <input type="checkbox" name="flowers" value="{{ flower.id }}">
-                    <img src="{{ flower.image.url }}" alt="{{ flower.name }}" style="width: 100px; height: auto;">
-                    {{ flower.name }} - {{ flower.price }} руб.<br>
-                </div>
-            {% endfor %}
         {% endif %}
         <br>
         <button class="btn btn-orange" type="submit">Оформить заказ</button>
