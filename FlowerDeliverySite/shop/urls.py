@@ -9,6 +9,5 @@ urlpatterns = [
     path('contacts/', views.contacts, name='page4'),
     path('order/', order_view, name='order_view'),
     path('confirm_order/', confirm_order, name='confirm_order'),
-    # path('order/<int:flower_id>/', views.order, name='order_with_flower'),  # Для заказа конкретного цветка
 ]
 

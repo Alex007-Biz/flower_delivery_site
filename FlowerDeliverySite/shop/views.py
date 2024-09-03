@@ -44,24 +44,3 @@ def confirm_order(request):
 
     return redirect('index')  # Если это не POST-запрос, перенаправляем на главную страницу
 
-
-# @login_required
-# def order(request, flower_id=None):
-#     if request.method == 'POST':
-#         # Получаем flower_id из POST-запроса
-#         flower_id = request.POST.get('flower_id')
-#
-#         if flower_id:
-#             # Получаем цветок по flower_id
-#             flower = Flower.objects.get(id=flower_id)
-#             order = Order.objects.create(user=request.user)
-#             order.flowers.add(flower)
-#             return redirect('index')  # Перенаправляем на главную страницу или куда вам нужно
-#
-#     # Если это GET-запрос, вы можете отобразить страницу заказа
-#     # или обрабатывать другие логику, если flower_id передан в URL
-#     if flower_id:
-#         flower = Flower.objects.get(id=flower_id)
-#         return render(request, 'order_detail.html', {'flower': flower})
-#
-#     return render(request, 'order.html')  # Если flower_id не передан, отображаем общую страницу заказа

@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a4a2041-d0e7-4788-8360-f506b1b738a9" name="Changes" comment="" />
+    <list default="true" id="9a4a2041-d0e7-4788-8360-f506b1b738a9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/FlowerDeliverySite/db_old.sqlite3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FlowerDeliverySite/shop/migrations/0004_customuser_alter_order_user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/FlowerDeliverySite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/FlowerDeliverySite/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/bot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/shop/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/shop/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/shop/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/shop/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -39,6 +48,7 @@
     "Python.1.executor": "Run",
     "Python.bot.executor": "Run",
     "Python.bot_old.executor": "Run",
+    "Python.models.executor": "Run",
     "Python.urls.executor": "Run",
     "Python.views.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -56,9 +66,11 @@
       <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite\shop\media" />
-      <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite\shop\static\shop\img" />
+      <recent name="E:\Алексей\Github\flower_delivery_site" />
       <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite" />
+      <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite\FlowerDeliverySite" />
+      <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite\shop" />
+      <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite\shop\media" />
     </key>
   </component>
   <component name="SharedIndexes">
