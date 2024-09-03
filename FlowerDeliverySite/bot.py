@@ -7,6 +7,9 @@ from aiogram.types import Message
 import django
 from config import TOKEN
 from asgiref.sync import sync_to_async
+from django.core.management.base import BaseCommand
+from shop.models import CustomUser
+from django.core.exceptions import ObjectDoesNotExist
 
 # Настройка Django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FlowerDeliverySite.settings')
@@ -22,13 +25,25 @@ logger = logging.getLogger(__name__)
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
+
+class Command(BaseCommand):
+    help = 'Описание вашего скрипта'
+    def handle(self, *args, **kwargs):
+        # Ваш код здесь
+        self.stdout.write(self.style.SUCCESS('Скрипт выполнен успешно!'))
+
 @sync_to_async
 def get_flowers():
     return list(Flower.objects.all())
 
 @sync_to_async
 def get_user(user_id):
-    return CustomUser.objects.get(id=user_id)
+    try:
+        return CustomUser.objects.get(id=user_id)
+    except CustomUser.DoesNotExist:
+        # Обработка случая, когда пользователь не найден
+        logger.error(f"User with id {user_id} does not exist.")
+        return
 
 @sync_to_async
 def create_order(user):
