@@ -55,7 +55,7 @@ ROOT_URLCONF = 'FlowerDeliverySite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [], # Здесь можно указать дополнительные директории для шаблонов, если нужно
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,6 +81,8 @@ DATABASES = {
     }
 }
 
+AUTH_USER_MODEL = 'shop.CustomUser'  # замените 'yourapp' на имя вашего приложения
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -100,6 +102,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/order/'  # или другая страница, на которую вы хотите перенаправлять после входа
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
@@ -129,3 +133,4 @@ MEDIA_ROOT = BASE_DIR / 'shop/media'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+

@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Flower, Order
+from .models import Flower, Order, CustomUser
 from .forms import OrderForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
 
 
 # Create your views here.
@@ -30,13 +31,28 @@ def order_view(request):
     return redirect('index')
 
 
+def signup_view(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')  # или куда-то еще после успешной регистрации
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/signup.html', {'form': form})
+
+@login_required
 def confirm_order(request):
     if request.method == 'POST':
         flower_ids = request.POST.getlist('flowers')
         flowers = Flower.objects.filter(id__in=flower_ids)
-
+        # Получаем экземпляр CustomUser
+        custom_user = CustomUser.objects.get(username=request.user.username)
+        if not flowers:
+        # Обработка ошибки: нет выбранных цветов
+            return render(request, 'shop/order.html', {'error': 'Выберите хотя бы один цветок.'})
         # Обработка создания заказа
-        order = Order.objects.create(user=request.user)  # Предполагается, что пользователь аутентифицирован
+        order = Order.objects.create(user=custom_user)  # Теперь это CustomUser
         order.flowers.set(flowers)  # Предполагается, что у вас есть связь many-to-many с цветами
         order.save()
 
