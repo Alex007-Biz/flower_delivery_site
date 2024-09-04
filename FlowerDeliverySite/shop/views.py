@@ -4,12 +4,10 @@ from .forms import OrderForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 
-
 # Create your views here.
 def index(request):
     flowers = Flower.objects.all()
     return render(request, 'shop/index.html', {'flowers': flowers})
-
 
 def new(request):
     return render(request, 'shop/new.html')
@@ -20,7 +18,6 @@ def about(request):
 def contacts(request):
     return render(request, 'shop/contacts.html')
 
-
 def order_view(request):
     if request.method == 'POST':
         flower_id = request.POST.get('flower_id')
@@ -29,7 +26,6 @@ def order_view(request):
 
     # Если это GET-запрос, перенаправляем на главную страницу или другую логику
     return redirect('index')
-
 
 def signup_view(request):
     if request.method == 'POST':

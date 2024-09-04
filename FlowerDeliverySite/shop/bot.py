@@ -1,112 +1,69 @@
 import os
-import logging
-import asyncio
-from aiogram import Bot, Dispatcher, F
-from aiogram.filters import CommandStart, Command
-from aiogram.types import Message
 import django
+import logging
+from telegram import Update, InputMediaPhoto
+from telegram.ext import Updater, CommandHandler, MessageHandler, filters, CallbackContext
 from config import TOKEN
-from asgiref.sync import sync_to_async
-from django.core.management.base import BaseCommand
 
 # Настройка Django
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FlowerDeliverySite.FlowerDeliverySite.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FlowerDeliverySite.settings')
 django.setup()
 
-# Импорт моделей после настройки Django
-from models import CustomUser, Flower, Order  # Импорт моделей
+from shop.models import Order, Flower, CustomUser  # Импортируйте необходимые модели
 
-# Включение логирования
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
+# Настройка логирования
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-bot = Bot(token=TOKEN)
-dp = Dispatcher()
+# Токен вашего бота
+TELEGRAM_TOKEN = TOKEN
 
-class Command(BaseCommand):
-    help = 'Описание вашего скрипта'
-    def handle(self, *args, **kwargs):
-        self.stdout.write(self.style.SUCCESS('Скрипт выполнен успешно!'))
+# Функция для старта бота
+def start(update: Update, context: CallbackContext) -> None:
+    update.message.reply_text('Здравствуйте! Я бот магазина цветов.')
 
-    @sync_to_async
-    def get_flowers():
-        return list(Flower.objects.all())
 
-    @sync_to_async
-    def get_user(user_id):
-        try:
-            return CustomUser.objects.get(id=user_id)
-        except CustomUser.DoesNotExist:
-            logger.error(f"User with id {user_id} does not exist.")
-            return None
+# Функция для обработки нового заказа
+def new_order(update: Update, context: CallbackContext) -> None:
+    # Здесь вы можете получить информацию о заказе из контекста или базы данных
+    # Это пример, вам нужно будет адаптировать его под вашу логику
+    order = Order.objects.last()  # Получим последний заказ (или создайте свою логику получения заказа)
+    if order:
+        # Соберем информацию о заказе
+        flowers_info = ""
+        for flower in order.flowers.all():
+            flowers_info += f"Название: {flower.name}\nЦена: {flower.price}₽\n"
 
-    @sync_to_async
-    def create_order(user, delivery_info):
-        order = Order.objects.create(user=user, **delivery_info)
-        return order
+        message = f"Новый заказ:\n\n{flowers_info}\n\nДата создания: {order.created_at}\n"
+        # Если у вас есть комментарий к заказу, добавьте его сюда
+        # message += f"Комментарий: {order.comment}\n"  # Предполагается, что вы добавите поле комментария в модель Order
 
-    @sync_to_async
-    def get_flower(flower_id):
-        return Flower.objects.get(id=flower_id)
+        # Отправка изображения с букета
+        for flower in order.flowers.all():
+            if flower.image:  # Если изображение есть
+                context.bot.send_photo(chat_id=update.message.chat_id, photo=open(flower.image.path, 'rb'), caption=message)
+            else:
+                context.bot.send_message(chat_id=update.message.chat_id, text=message)
+    else:
+        update.message.reply_text("Нет доступных заказов.")
 
-@dp.message(CommandStart())
-async def start(message: Message):
-    await message.answer(
-        "Добро пожаловать в Магазин цветов Bernardo's Flowers! Кликните по /order для совершения заказа.")
+def main() -> None:
+    # Создайте Updater и передайте ему ваш токен
+    updater = Updater(TELEGRAM_TOKEN)
 
-@dp.message(Command('order'))
-async def order(message: Message):
-    flowers = await get_flowers()  # Получаем цветы асинхронно
-    flower_list = '\n'.join([f"{flower.id}: {flower.name} - {flower.price} руб." for flower in flowers])
-    await message.answer(
-        f"Доступные букеты:\n{flower_list}\n\nПожалуйста, вышлите ID интересующих букетов через запятую.")
+    # Получите диспетчер для регистрации обработчиков
+    dispatcher = updater.dispatcher
 
-@dp.message(F.text & ~F.command())
-async def handle_message(message: Message):
-    flower_ids = message.text.split(',')
-    user_id = message.from_user.id  # Получаем ID пользователя Telegram
+    # На команды /start и /new_order будут реагировать соответствующие функции
+    dispatcher.add_handler(CommandHandler("start", start))
+    dispatcher.add_handler(CommandHandler("new_order", new_order))
 
-    # Запрашиваем дополнительную информацию о заказе
-    await message.answer(
-        "Пожалуйста, введите дату, время и место доставки через запятую (например, 2023-10-10, 12:00, ул. Ленина 1).")
+    # Начинаем получать обновления
+    updater.start_polling()
 
-    # Сохраняем flower_ids в контексте
-    # Здесь можно использовать контекст пользователя, если вы используете хранилище состояний
-
-@dp.message(F.text & ~F.command())
-async def handle_delivery_info(delivery_message: Message):
-    delivery_info = delivery_message.text.split(',')
-    if len(delivery_info) < 3:
-        await delivery_message.answer("Пожалуйста, укажите дату, время и место доставки.")
-        return
-
-    date, time, address = map(str.strip, delivery_info)
-
-    # Здесь нужно получить user_id и flower_ids из контекста
-    user_id = ...  # Получить из контекста
-    flower_ids = ...  # Получить из контекста
-
-    # Получаем пользователя
-    user = await get_user(user_id)
-    if not user:
-        await delivery_message.answer("Пользователь не найден. Попробуйте позже.")
-        return
-
-    order = await create_order(user, {'date': date, 'time': time, 'address': address})
-
-    for flower_id in flower_ids:
-        try:
-            flower = await get_flower(int(flower_id.strip()))  # Получаем цветок асинхронно
-            order.flowers.add(flower)
-        except Flower.DoesNotExist:
-            await delivery_message.answer(f"Букет №{flower_id.strip()} не существует.")
-            logger.error(f"Букет с ID {flower_id.strip()} не найден.")
-
-        await delivery_message.answer(
-            f'Ваш заказ оформлен!\nДоставка:\nДата: {date}\nВремя: {time}\nАдрес: {address}')
-
-async def main():
-    await dp.start_polling(bot)
+    # Запускаем бота
+    updater.idle()
 
 if __name__ == '__main__':
-    asyncio.run(main())
+    main()
