@@ -12,7 +12,7 @@ from shop.models import CustomUser
 from django.core.exceptions import ObjectDoesNotExist
 
 # Настройка Django
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FlowerDeliverySite_0.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FlowerDeliverySite.settings')
 django.setup()
 
 # Импорт моделей после настройки Django

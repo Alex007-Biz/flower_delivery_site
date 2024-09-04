@@ -11,7 +11,7 @@ from django.core.management.base import BaseCommand
 from shop.models import CustomUser, Flower, Order  # Импорт моделей
 
 # Настройка Django
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FlowerDeliverySite_0.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FlowerDeliverySite.settings')
 django.setup()
 
 # Включение логирования
