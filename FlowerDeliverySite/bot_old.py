@@ -2,17 +2,15 @@ import os
 import logging
 import asyncio
 from aiogram import Bot, Dispatcher, F
-from aiogram.filters import CommandStart, Command
+from aiogram.filters import CommandStart
 from aiogram.types import Message
 import django
-from config import TOKEN
+from FlowerDeliverySite.shop.config import TOKEN
 from asgiref.sync import sync_to_async
 from django.core.management.base import BaseCommand
-from shop.models import CustomUser
-from django.core.exceptions import ObjectDoesNotExist
 
 # Настройка Django
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FlowerDeliverySite.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FlowerDeliverySite.FlowerDeliverySite.settings')
 django.setup()
 
 # Импорт моделей после настройки Django
