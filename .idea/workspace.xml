@@ -5,13 +5,59 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a4a2041-d0e7-4788-8360-f506b1b738a9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/FlowerDeliverySite/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlowerDeliverySite/shop/scripts/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/bot.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/FlowerDeliverySite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/FlowerDeliverySite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/bot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/shop/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/db_old.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/db_old.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/FlowerDeliverySite/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/FlowerDeliverySite/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/FlowerDeliverySite/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/FlowerDeliverySite/asgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/FlowerDeliverySite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/FlowerDeliverySite/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/FlowerDeliverySite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/FlowerDeliverySite/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/FlowerDeliverySite/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/FlowerDeliverySite/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/bot_old.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/bot_old.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/db_old.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/db_old.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/manage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/media/flowers/51-roza-fridom-6.webp" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/media/flowers/51-roza-fridom-6.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/media/flowers/buket_emili.webp" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/media/flowers/buket_emili.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/media/flowers/buket_tsvetov_schastlivaya_istoriya-2.webp" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/media/flowers/buket_tsvetov_schastlivaya_istoriya-2.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/media/flowers/osenniy-kaleydoskop-2.webp" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/media/flowers/osenniy-kaleydoskop-2.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/media/media/flowers/51-roza-fridom-6.webp" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/media/media/flowers/51-roza-fridom-6.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/media/media/flowers/7qoRiZMc2N.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/media/media/flowers/7qoRiZMc2N.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/media/media/flowers/7qoRiZMc2N_Dqzikr4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/media/media/flowers/7qoRiZMc2N_Dqzikr4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/media/media/flowers/Rob3YgoHjz.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/media/media/flowers/Rob3YgoHjz.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/media/media/flowers/Rob3YgoHjz_GcBpfxY.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/media/media/flowers/Rob3YgoHjz_GcBpfxY.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/media/media/flowers/buket_emili.webp" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/media/media/flowers/buket_emili.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/media/media/flowers/buket_tsvetov_schastlivaya_istoriya-2.webp" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/media/media/flowers/buket_tsvetov_schastlivaya_istoriya-2.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/media/media/flowers/osenniy-kaleydoskop-2.webp" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/media/media/flowers/osenniy-kaleydoskop-2.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/migrations/0002_flower_description_flower_image_alter_flower_name.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/migrations/0002_flower_description_flower_image_alter_flower_name.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/migrations/0003_alter_flower_options_alter_order_options_and_more.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/migrations/0003_alter_flower_options_alter_order_options_and_more.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/migrations/0004_customuser_alter_order_user.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/migrations/0004_customuser_alter_order_user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/scripts/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/scripts/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/static/shop/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/static/shop/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/static/shop/img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/static/shop/img/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/static/shop/img/logo2.png" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/static/shop/img/logo2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/templates/registration/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/templates/registration/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/templates/registration/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/templates/shop/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/templates/shop/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/templates/shop/contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/templates/shop/contacts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/templates/shop/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/templates/shop/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/templates/shop/index_GPT.html" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/templates/shop/index_GPT.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/templates/shop/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/templates/shop/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/templates/shop/nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/templates/shop/nav.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/templates/shop/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/templates/shop/new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/templates/shop/order.html" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/templates/shop/order.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/templates/shop/order_success.html" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/templates/shop/order_success.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite_0/shop/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,8 +111,8 @@
       <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite" />
       <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite\FlowerDeliverySite" />
+      <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite" />
       <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite\shop" />
       <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite\shop\management\commands" />
       <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite\shop\scripts" />
@@ -108,7 +154,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/FlowerDeliverySite/manage.py</url>
+          <url>file://$PROJECT_DIR$/FlowerDeliverySite_0/manage.py</url>
           <line>2</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
