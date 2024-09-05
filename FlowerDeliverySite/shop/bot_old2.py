@@ -2,10 +2,10 @@ import os
 import logging
 import asyncio
 from aiogram import Bot, Dispatcher, F
-from aiogram.filters import CommandStart, Command
+from aiogram.filters import CommandStart
 from aiogram.types import Message
 import django
-from config import TOKEN
+from FlowerDeliverySite.config import TOKEN
 from asgiref.sync import sync_to_async
 from django.core.management.base import BaseCommand
 
