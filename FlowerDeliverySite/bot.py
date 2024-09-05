@@ -1,9 +1,15 @@
 import os
 import django
 import logging
-from telegram import Update
-from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
+import asyncio
+from aiogram import Bot, Dispatcher, types
+from aiogram.filters import CommandStart, Command
+from aiogram.fsm.storage.memory import MemoryStorage
+from aiogram.types import Message
 from config import TOKEN
+from asgiref.sync import sync_to_async
+from django.core.management.base import BaseCommand
+
 
 # Настройка Django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FlowerDeliverySite.settings')
@@ -17,14 +23,19 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 logger = logging.getLogger(__name__)
 
 # Токен вашего бота
-TELEGRAM_TOKEN = TOKEN
+bot = Bot(token=TOKEN)
+dp = Dispatcher()
 
 # Функция для старта бота
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_text('Здравствуйте! Я бот магазина цветов.')
+@dp.message(CommandStart())
+async def start(message: Message):
+    await message.answer(
+        "Добро пожаловать в Магазин цветов Bernardo's Flowers! Кликните по /order для совершения заказа.")
+
 
 # Функция для обработки нового заказа
-async def new_order(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+@dp.message(Command('order'))
+async def order(message: Message):
     order = Order.objects.last()  # Получим последний заказ (или создайте свою логику получения заказа)
     if order:
         # Соберем информацию о заказе
@@ -32,27 +43,21 @@ async def new_order(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         for flower in order.flowers.all():
             flowers_info += f"Название: {flower.name}\nЦена: {flower.price}₽\n"
 
-        message = f"Новый заказ:\n\n{flowers_info}\n\nДата создания: {order.created_at}\n"
+        message_text = f"Новый заказ:\n\n{flowers_info}\n\nДата создания: {order.created_at}\n"
 
         # Отправка изображения с букета
         for flower in order.flowers.all():
             if flower.image:  # Если изображение есть
-                await context.bot.send_photo(chat_id=update.message.chat_id, photo=open(flower.image.path, 'rb'), caption=message)
+                with open(flower.image.path, 'rb') as photo:
+                    await bot.send_photo(chat_id=message.chat.id, photo=photo, caption=message_text)
             else:
-                await context.bot.send_message(chat_id=update.message.chat_id, text=message)
+                await bot.send_message(chat_id=message.chat.id, text=message_text)
     else:
-        await update.message.reply_text("Нет доступных заказов.")
+        await message.reply("Нет доступных заказов.")
 
-async def main() -> None:
-    app = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
-
-    # На команды /start и /new_order будут реагировать соответствующие функции
-    app.add_handler(CommandHandler("start", start))
-    app.add_handler(CommandHandler("new_order", new_order))
-
-    # Начинаем получать обновления
-    await app.run_polling()
+async def main():
+    await dp.start_polling(bot)
 
 if __name__ == '__main__':
-    import asyncio
+    # Запуск бота
     asyncio.run(main())

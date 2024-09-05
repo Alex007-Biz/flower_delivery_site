@@ -5,16 +5,16 @@ from aiogram import Bot, Dispatcher, F
 from aiogram.filters import CommandStart
 from aiogram.types import Message
 import django
-from FlowerDeliverySite.config import TOKEN
+from config import TOKEN
 from asgiref.sync import sync_to_async
 from django.core.management.base import BaseCommand
 
 # Настройка Django
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FlowerDeliverySite.FlowerDeliverySite.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FlowerDeliverySite.settings')
 django.setup()
 
 # Импорт моделей после настройки Django
-from models import CustomUser, Flower, Order  # Импорт моделей
+from shop.models import CustomUser, Flower, Order  # Импорт моделей
 
 # Включение логирования
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
