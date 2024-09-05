@@ -49,8 +49,9 @@ async def order(message: Message):
         # Отправка изображения с букета
         for flower in flowers:
             if flower.image:  # Если изображение есть
-                with open(flower.image.path, 'rb') as photo:
-                    await bot.send_photo(chat_id=message.chat.id, photo=photo, caption=message_text)
+                # Создаем InputFile из пути к изображению
+                photo = InputFile(flower.image.path)
+                await bot.send_photo(chat_id=message.chat.id, photo=photo, caption=message_text)
             else:
                 await bot.send_message(chat_id=message.chat.id, text=message_text)
     else:
