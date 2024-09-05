@@ -4,12 +4,9 @@ import logging
 import asyncio
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import CommandStart, Command
-from aiogram.fsm.storage.memory import MemoryStorage
-from aiogram.types import Message
+from aiogram.types import Message, InputFile
 from config import TOKEN
 from asgiref.sync import sync_to_async
-from django.core.management.base import BaseCommand
-
 
 # Настройка Django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FlowerDeliverySite.settings')
@@ -30,23 +27,27 @@ dp = Dispatcher()
 @dp.message(CommandStart())
 async def start(message: Message):
     await message.answer(
-        "Добро пожаловать в Магазин цветов Bernardo's Flowers! Кликните по /order для совершения заказа.")
-
+        "Добро пожаловать в Магазин цветов Bernardo's Flowers! Кликните по /order для совершения заказа."
+    )
 
 # Функция для обработки нового заказа
 @dp.message(Command('order'))
 async def order(message: Message):
-    order = Order.objects.last()  # Получим последний заказ (или создайте свою логику получения заказа)
+    # Получаем последний заказ
+    order = await sync_to_async(Order.objects.last)()
+
     if order:
         # Соберем информацию о заказе
         flowers_info = ""
-        for flower in order.flowers.all():
+        flowers = await sync_to_async(list)(order.flowers.all())  # Получаем все цветы асинхронно
+
+        for flower in flowers:
             flowers_info += f"Название: {flower.name}\nЦена: {flower.price}₽\n"
 
         message_text = f"Новый заказ:\n\n{flowers_info}\n\nДата создания: {order.created_at}\n"
 
         # Отправка изображения с букета
-        for flower in order.flowers.all():
+        for flower in flowers:
             if flower.image:  # Если изображение есть
                 with open(flower.image.path, 'rb') as photo:
                     await bot.send_photo(chat_id=message.chat.id, photo=photo, caption=message_text)
