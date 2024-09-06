@@ -44,18 +44,28 @@ async def order(message: Message):
         for flower in flowers:
             flowers_info += f"Название: {flower.name}\nЦена: {flower.price}₽\n"
 
-        message_text = f"Новый заказ:\n\n{flowers_info}\n\nДата создания: {order.created_at}\n"
+        message_text = f"Новый заказ:\n{flowers_info}\nДата создания: {order.created_at}\n"
+        print(message_text)
+
+        await message.answer(
+            f"Ваш заказ: {message_text}."
+        )
 
         # Отправка изображения с букета
-        for flower in flowers:
-            if flower.image:  # Если изображение есть
-                # Создаем InputFile из пути к изображению
-                photo = InputFile(flower.image.path)
-                await bot.send_photo(chat_id=message.chat.id, photo=photo, caption=message_text)
-            else:
-                await bot.send_message(chat_id=message.chat.id, text=message_text)
+        # for flower in flowers:
+        #     if flower.image:  # Если изображение есть
+        #         print(f"Path to image: {flower.image.path}")
+        #         # Создаем InputFile из пути к изображению
+        #         with open(flower.image.path, 'rb') as file:
+        #             photo = InputFile(file)
+        #         # photo = InputFile(flower.image.path)
+        #         await bot.send_photo(chat_id=message.chat.id, photo=photo, caption=message_text)
+        #     else:
+        #         await bot.send_message(chat_id=message.chat.id, text=message_text)
     else:
-        await message.reply("Нет доступных заказов.")
+        await message.answer("Нет доступных заказов.")
+
+
 
 async def main():
     await dp.start_polling(bot)
