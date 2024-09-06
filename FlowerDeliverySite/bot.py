@@ -27,7 +27,7 @@ dp = Dispatcher()
 @dp.message(CommandStart())
 async def start(message: Message):
     await message.answer(
-        "Добро пожаловать в Магазин цветов Bernardo's Flowers! Кликните по /order для совершения заказа."
+        "Добро пожаловать в Магазин цветов Bernardo's Flowers! Кликните по /order чтобы посмотреть ваш заказа."
     )
 
 # Функция для обработки нового заказа
@@ -42,13 +42,13 @@ async def order(message: Message):
         flowers = await sync_to_async(list)(order.flowers.all())  # Получаем все цветы асинхронно
 
         for flower in flowers:
-            flowers_info += f"Название: {flower.name}\nЦена: {flower.price}₽\n"
+            flowers_info += f"Название: {flower.name}\nЦена: {flower.price}₽"
 
-        message_text = f"Новый заказ:\n{flowers_info}\nДата создания: {order.created_at}\n"
+        message_text = f"Ваш заказ №: {order.id}\n{flowers_info}\nЗаказ создан: {order.created_at.date()}"
         print(message_text)
 
         await message.answer(
-            f"Ваш заказ: {message_text}."
+            f"{message_text}"
         )
 
         # Отправка изображения с букета
