@@ -43,25 +43,19 @@ async def order(message: Message):
 
         for flower in flowers:
             flowers_info += f"Название: {flower.name}\nЦена: {flower.price}₽"
+            path_to_image = flower.image.path
+            print(f"Path to image: {path_to_image}")
 
         message_text = f"Ваш заказ №: {order.id}\n{flowers_info}\nЗаказ создан: {order.created_at.date()}"
-        print(message_text)
+        # print(message_text)
 
-        await message.answer(
-            f"{message_text}"
-        )
+        await message.answer(f"{message_text}")
 
-        # Отправка изображения с букета
-        # for flower in flowers:
-        #     if flower.image:  # Если изображение есть
-        #         print(f"Path to image: {flower.image.path}")
-        #         # Создаем InputFile из пути к изображению
-        #         with open(flower.image.path, 'rb') as file:
-        #             photo = InputFile(file)
-        #         # photo = InputFile(flower.image.path)
-        #         await bot.send_photo(chat_id=message.chat.id, photo=photo, caption=message_text)
-        #     else:
-        #         await bot.send_message(chat_id=message.chat.id, text=message_text)
+        path_2 = 'shop/media/media/flowers/Rob3YgoHjz_GcBpfxY.jpg'
+        # photo = InputFile(path_2)
+        with open(path_2, 'rb') as photo:  # Открываем файл в бинарном режиме
+            await message.answer_photo(photo=photo, caption="Вот ваше фото!")
+
     else:
         await message.answer("Нет доступных заказов.")
 
