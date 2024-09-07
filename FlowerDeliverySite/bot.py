@@ -4,7 +4,7 @@ import logging
 import asyncio
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import CommandStart, Command
-from aiogram.types import Message, InputFile
+from aiogram.types import Message, FSInputFile
 from config import TOKEN
 from asgiref.sync import sync_to_async
 
@@ -27,13 +27,15 @@ dp = Dispatcher()
 @dp.message(CommandStart())
 async def start(message: Message):
     await message.answer(
-        "Добро пожаловать в Магазин цветов Bernardo's Flowers! Кликните по /order чтобы посмотреть ваш заказа."
+        f"Доброго время суток, {message.from_user.full_name}! "
+        f"\n Добро пожаловать в Магазин цветов Bernardo's Flowers! Кликните по /order чтобы посмотреть ваш заказ."
     )
 
 @dp.message(Command('photo'))
 async def photo(message: Message):
     rand_photo = 'shop/media/media/flowers/Rob3YgoHjz_GcBpfxY.jpg'
-    await message.answer_photo(photo=rand_photo, caption='Это супер крутая картинка')
+    photo_file = FSInputFile(rand_photo)
+    await message.answer_photo(photo=photo_file, caption='Это супер крутая картинка')
 
 # Функция для обработки нового заказа
 @dp.message(Command('order'))

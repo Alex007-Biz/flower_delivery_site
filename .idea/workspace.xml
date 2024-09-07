@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a4a2041-d0e7-4788-8360-f506b1b738a9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/FlowerDeliverySite/bot_lesson.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FlowerDeliverySite/buket_tsvetov_1.webp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/bot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/bot_lesson.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/bot_lesson.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/shop/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,16 +53,16 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "E:/Алексей/Github/flower_delivery_site/FlowerDeliverySite/shop/templates/shop"
+    "last_opened_file_path": "E:/Алексей/Github/flower_delivery_site/FlowerDeliverySite"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite" />
       <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite\shop\templates\shop" />
       <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite\shop\static\shop\img" />
       <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite\shop\static\shop\css" />
       <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite\shop" />
-      <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite" />
