@@ -43,6 +43,9 @@ class Order(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     flowers = models.ManyToManyField(Flower)
     created_at = models.DateTimeField(auto_now_add=True)
+    delivery_place = models.TextField(default='Место доставки')
+    delivery_date = models.DateTimeField(auto_now_add=True)
+    commentary = models.TextField(default='Комментарий')
 
     class Meta:
         verbose_name = 'Заказ'
