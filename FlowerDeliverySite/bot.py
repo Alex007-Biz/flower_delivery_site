@@ -30,6 +30,11 @@ async def start(message: Message):
         "Добро пожаловать в Магазин цветов Bernardo's Flowers! Кликните по /order чтобы посмотреть ваш заказа."
     )
 
+@dp.message(Command('photo'))
+async def photo(message: Message):
+    rand_photo = 'shop/media/media/flowers/Rob3YgoHjz_GcBpfxY.jpg'
+    await message.answer_photo(photo=rand_photo, caption='Это супер крутая картинка')
+
 # Функция для обработки нового заказа
 @dp.message(Command('order'))
 async def order(message: Message):

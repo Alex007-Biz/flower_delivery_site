@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a4a2041-d0e7-4788-8360-f506b1b738a9" name="Changes" comment="" />
+    <list default="true" id="9a4a2041-d0e7-4788-8360-f506b1b738a9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/FlowerDeliverySite/bot_lesson.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/bot.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +42,7 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "Python.1.executor": "Run",
     "Python.bot.executor": "Run",
+    "Python.bot_lesson.executor": "Run",
     "Python.bot_old.executor": "Run",
     "Python.bot_old2.executor": "Run",
     "Python.models.executor": "Run",
