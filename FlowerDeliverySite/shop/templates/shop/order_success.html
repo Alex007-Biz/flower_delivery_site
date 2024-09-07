@@ -6,5 +6,17 @@
 
 {% block content %}
     <h1>Вы оформили заказ №{{ order_id }}</h1>
-    <p>Спасибо за ваш заказ!</p>
+    <div>
+       <h2>Ваши цветы:</h2>
+       <ul>
+           {% for flower in selected_flowers %}
+               <li>
+                   <img src="{{ flower.image.url }}" alt="{{ flower.name }}" style="width: 100px; height: auto;">
+                   {{ flower.name }} - {{ flower.price }} руб.
+               </li>
+           {% endfor %}
+       </ul>
+   </div>
+    <h5>Всего стоимость заказа: {{ total_sum }} руб.</h5>
+    <h5>Спасибо за ваш заказ!</h5>
 {% endblock %}

@@ -51,8 +51,17 @@ def confirm_order(request):
         order = Order.objects.create(user=custom_user)  # Теперь это CustomUser
         order.flowers.set(flowers)  # Предполагается, что у вас есть связь many-to-many с цветами
         order.save()
+        # Извлекаем выбранные цветы из заказа
+        selected_flowers = order.flowers.all()  # Получаем все цветы, связанные с заказом
 
-        return render(request, 'shop/order_success.html', {'order_id': order.id})
+        # Вычисляем общую сумму
+        total_sum = sum(flower.price for flower in selected_flowers)
+
+        return render(request, 'shop/order_success.html', {
+            'order_id': order.id,
+            'selected_flowers': selected_flowers,
+            'total_sum': total_sum  # Передаем общую сумму в контекст
+        })
 
     return redirect('index')  # Если это не POST-запрос, перенаправляем на главную страницу
 

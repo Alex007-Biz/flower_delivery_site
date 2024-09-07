@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a4a2041-d0e7-4788-8360-f506b1b738a9" name="Changes" comment="" />
+    <list default="true" id="9a4a2041-d0e7-4788-8360-f506b1b738a9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/db_old.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/db_old.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/photo3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/templates/shop/order_success.html" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/shop/templates/shop/order_success.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/shop/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,24 +38,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Python.1.executor": "Run",
-    "Python.bot.executor": "Run",
-    "Python.bot_lesson.executor": "Run",
-    "Python.bot_old.executor": "Run",
-    "Python.bot_old2.executor": "Run",
-    "Python.models.executor": "Run",
-    "Python.urls.executor": "Run",
-    "Python.views.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "E:/Алексей/Github/flower_delivery_site/FlowerDeliverySite"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.bot.executor&quot;: &quot;Run&quot;,
+    &quot;Python.bot_lesson.executor&quot;: &quot;Run&quot;,
+    &quot;Python.bot_old.executor&quot;: &quot;Run&quot;,
+    &quot;Python.bot_old2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.models.executor&quot;: &quot;Run&quot;,
+    &quot;Python.urls.executor&quot;: &quot;Run&quot;,
+    &quot;Python.views.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Алексей/Github/flower_delivery_site/FlowerDeliverySite&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite" />
