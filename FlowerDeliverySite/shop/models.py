@@ -43,9 +43,9 @@ class Order(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     flowers = models.ManyToManyField(Flower)
     created_at = models.DateTimeField(auto_now_add=True)
-    delivery_place = models.TextField(default='Место доставки')
+    delivery_place = models.TextField(default='Адрес доставки',  null=True, blank=True)
     delivery_date = models.DateTimeField(auto_now_add=True)
-    commentary = models.TextField(default='Комментарий')
+    commentary = models.TextField(default='Комментарий', null=True, blank=True)  # Позволяет NULL значения и пустые строки
 
     class Meta:
         verbose_name = 'Заказ'

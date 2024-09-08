@@ -47,20 +47,30 @@ def confirm_order(request):
         if not flowers:
         # Обработка ошибки: нет выбранных цветов
             return render(request, 'shop/order.html', {'error': 'Выберите хотя бы один цветок.'})
+        # Извлечение данных из формы
+        delivery_place = request.POST.get('delivery_place')
+        delivery_date = request.POST.get('delivery_date')
+        commentary = request.POST.get('commentary')
+
         # Обработка создания заказа
-        order = Order.objects.create(user=custom_user)  # Теперь это CustomUser
+        order = Order.objects.create(user=custom_user,
+                                     delivery_place=delivery_place,
+                                     delivery_date=delivery_date,
+                                     commentary=commentary) # Передаем дополнительные данные
         order.flowers.set(flowers)  # Предполагается, что у вас есть связь many-to-many с цветами
         order.save()
         # Извлекаем выбранные цветы из заказа
         selected_flowers = order.flowers.all()  # Получаем все цветы, связанные с заказом
-
         # Вычисляем общую сумму
         total_sum = sum(flower.price for flower in selected_flowers)
 
         return render(request, 'shop/order_success.html', {
             'order_id': order.id,
             'selected_flowers': selected_flowers,
-            'total_sum': total_sum  # Передаем общую сумму в контекст
+            'total_sum': total_sum,  # Передаем общую сумму в контекст
+            'delivery_place': delivery_place,
+            'delivery_date': delivery_date,
+            'commentary': commentary
         })
 
     return redirect('index')  # Если это не POST-запрос, перенаправляем на главную страницу
