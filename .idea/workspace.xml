@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a4a2041-d0e7-4788-8360-f506b1b738a9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/FlowerDeliverySite/shop/migrations/0007_alter_order_commentary_alter_order_delivery_place.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/db_old.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/db_old.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/shop/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/shop/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/templates/shop/order.html" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/shop/templates/shop/order.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

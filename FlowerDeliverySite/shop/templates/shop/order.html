@@ -17,6 +17,25 @@
             </div>
         {% endif %}
         <br>
+        <!-- Поле для ввода места доставки -->
+        <div>
+            <label for="delivery_place">Место доставки:</label>
+            <input type="text" id="delivery_place" name="delivery_place" required>
+        </div>
+
+        <!-- Поле для ввода даты доставки -->
+        <div>
+            <label for="delivery_date">Дата доставки:</label>
+            <input type="date" id="delivery_date" name="delivery_date" required>
+        </div>
+
+        <!-- Поле для комментария -->
+        <div>
+            <label for="commentary">Комментарий:</label>
+            <textarea id="commentary" name="commentary"></textarea>
+        </div>
+
+        <br>
         <button class="btn btn-orange" type="submit">Оформить заказ</button>
     </form>
 {% endblock %}
