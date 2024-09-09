@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Flower, Order, CustomUser
-from .forms import OrderForm
+from .forms import  CustomUserCreationForm, OrderForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import get_user_model
 
+User = get_user_model()
 # Create your views here.
 def index(request):
     flowers = Flower.objects.all()
@@ -29,13 +31,16 @@ def order_view(request):
 
 def signup_view(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save(commit=False)  # Сохраняем пользователя, но не отправляем в БД пока
+            user.telegram_id = form.cleaned_data.get('telegram_id')  # Получаем telegram_id из формы
+            # user.set_password(form.cleaned_data['password'])
+            user.save()  # Теперь сохраняем пользователя с telegram_id
             return redirect('login')  # или куда-то еще после успешной регистрации
     else:
-        form = UserCreationForm()
-    return render(request, 'registration/signup.html', {'form': form})
+        form = CustomUserCreationForm()
+    return render(request, 'shop/signup.html', {'form': form})
 
 @login_required
 def confirm_order(request):
