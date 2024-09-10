@@ -35,7 +35,7 @@ def signup_view(request):
         if form.is_valid():
             user = form.save(commit=False)  # Сохраняем пользователя, но не отправляем в БД пока
             user.telegram_id = form.cleaned_data.get('telegram_id')  # Получаем telegram_id из формы
-            # user.set_password(form.cleaned_data['password'])
+            user.set_password(form.cleaned_data['password'])
             user.save()  # Теперь сохраняем пользователя с telegram_id
             return redirect('login')  # или куда-то еще после успешной регистрации
     else:
