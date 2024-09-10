@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a4a2041-d0e7-4788-8360-f506b1b738a9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/FlowerDeliverySite/old/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FlowerDeliverySite/old/bot_old_3.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/bot_lesson.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/old/bot_lesson.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/bot_old2.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/old/bot_old2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/bot.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/db_old.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/db_old.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlowerDeliverySite/shop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlowerDeliverySite/shop/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,11 +64,11 @@
       <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite\shop" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite\old" />
       <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite" />
       <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite\shop" />
       <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite\FlowerDeliverySite" />
       <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite\shop\management\commands" />
-      <recent name="E:\Алексей\Github\flower_delivery_site\FlowerDeliverySite\shop\scripts" />
     </key>
   </component>
   <component name="SharedIndexes">
